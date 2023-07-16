@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eCommerceSneakersDB
+    password: admin
+    username: postgres
+
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: update
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          jwk-set-uri: http://localhost:8080/realms/eCommerceSneakers/protocol/openid-connect/certs
+          issuer-uri: http://localhost:8080/realms/eCommerceSneakers
+server:
+  ssl:
+    key-store: C:\Users\123132\IdeaProjects\eCommerceSneakers\src\main\resources\keystore.p12
+    key-store-password: changeit
+    key-store-type: pkcs12
+    enabled: true
+  port: 9090
